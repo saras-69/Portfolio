@@ -10,14 +10,14 @@ const ThreeSphere = lazy(() => import('./ThreeSphere'));
 // Fallback component in case Three.js fails or while it's loading
 const FallbackSphere = () => {
   return (
-    <motion.div 
+    <motion.div
       className="w-64 h-64 rounded-full bg-gradient-to-r from-blue-500 to-blue-700"
-      animate={{ 
+      animate={{
         scale: [1, 1.1, 1],
         rotate: [0, 180, 360]
       }}
-      transition={{ 
-        duration: 8, 
+      transition={{
+        duration: 8,
         ease: "easeInOut",
         repeat: Infinity
       }}
@@ -36,7 +36,7 @@ const Hero = () => {
         y: (e.clientY / window.innerHeight) - 0.5
       });
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -44,10 +44,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <div name="home" className="h-screen w-full bg-gradient-to-b from-gray-900/90 to-black/90 relative z-10">
+    <div name="home" className="h-screen w-full bg-gradient-to-b from-gray-900/90 to-black/90 relative z-10 ">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center h-full px-4">
-        <div className="flex flex-col justify-center h-full md:w-1/2">
-          <motion.h2 
+        <div className="flex flex-col justify-center h-full md:w-1/2 center align-middle">
+          <motion.h2
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -58,7 +58,7 @@ const Hero = () => {
           >
             Hello, I'm
           </motion.h2>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -69,7 +69,7 @@ const Hero = () => {
           >
             Saraswati Chandra
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -80,8 +80,8 @@ const Hero = () => {
           >
             A passionate Computer Science student and Full-Stack Developer with expertise in creating innovative web applications and contributing to open-source projects.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -109,8 +109,8 @@ const Hero = () => {
               transform: `translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px)`,
             }}
           >
-            <Link 
-              to="projects" 
+            <Link
+              to="projects"
               smooth={true}
               duration={800}
               offset={-80}
@@ -121,17 +121,17 @@ const Hero = () => {
                 animate={{
                   x: [0, 5, 0]
                 }}
-                transition={{ 
-                  duration: 1.5, 
-                  repeat: Infinity 
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity
                 }}
                 className="group-hover:rotate-90 duration-300 ml-2 relative z-10"
               >
                 →
               </motion.span>
-              
+
               {/* Moving light effect */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 w-full h-full"
                 animate={{
                   background: [
@@ -150,7 +150,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="md:w-1/2 h-[350px] md:h-[500px] mt-8 md:mt-0 flex items-center justify-center"
           style={{
             transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
