@@ -1,0 +1,53 @@
+ @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+ /* Custom styles */
+ .font-signature {
+   font-family: 'Great Vibes', cursive;
+ }
+
+ /* Light mode (default) variables */
+ :root {
+   --bg-primary: #ffffff;
+   --text-primary: #1e293b;
+   --bg-section: #f8fafc;
+   --bg-card: #ffffff;
+   --border-color: #e2e8f0;
+   --shadow-color: rgba(0, 0, 0, 0.05);
+ }
+
+ /* Dark mode variables */
+ .dark {
+   --bg-primary: #000000;
+   --text-primary: #f8fafc;
+   --bg-section: #111827;
+   --bg-card: #1f2937;
+   --border-color: #374151;
+   --shadow-color: rgba(0, 0, 0, 0.3);
+ }
+
+ html {
+   scroll-behavior: smooth;
+ }
+
+ body {
+   font-family: 'Raleway', sans-serif;
+   background-color: var(--bg-primary);
+   color: var(--text-primary);
+   transition: background-color 0.3s ease, color 0.3s ease;
+ }
+
+ /* Make sections have proper IDs for smooth scrolling */
+ [name="home"],
+ [name="about"],
+ [name="skills"],
+ [name="projects"],
+ [name="experience"],
+ [name="contributions"],
+ [name="certifications"],
+ [name="contact"] {
+   position: relative;
+   z-index: 10;
+   scroll-margin-top: 4rem;
+   margin-bottom: 0;
+ }
