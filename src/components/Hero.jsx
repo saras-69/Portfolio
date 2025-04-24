@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
-import { lazy, Suspense, Component, useEffect, useState } from 'react';
+import { lazy, Suspense, Component, useEffect, useState, useRef } from 'react';
 import { Link } from 'react-scroll';
 
 // Lazy load Three.js components to prevent initial loading issues
@@ -11,7 +11,7 @@ const ThreeSphere = lazy(() => import('./ThreeSphere'));
 const FallbackSphere = () => {
   return (
     <motion.div
-      className="w-64 h-64 rounded-full bg-gradient-to-r from-blue-500 to-blue-700"
+      className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-blue-700"
       animate={{
         scale: [1, 1.1, 1],
         rotate: [0, 180, 360]
@@ -25,8 +25,10 @@ const FallbackSphere = () => {
   );
 };
 
+// The rest of your code remains unchanged
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const sphereContainerRef = useRef(null);
 
   // Track mouse movement for parallax effect
   useEffect(() => {
@@ -156,11 +158,17 @@ const Hero = () => {
             transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
           }}
         >
-          <ErrorBoundary>
-            <Suspense fallback={<FallbackSphere />}>
-              <ThreeSphere />
-            </Suspense>
-          </ErrorBoundary>
+          <div
+            ref={sphereContainerRef}
+            className="w-[250px] h-[250px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] relative"
+            style={{ minWidth: '250px', minHeight: '250px' }}
+          >
+            <ErrorBoundary>
+              <Suspense fallback={<FallbackSphere />}>
+                <ThreeSphere />
+              </Suspense>
+            </ErrorBoundary>
+          </div>
         </motion.div>
       </div>
     </div>
